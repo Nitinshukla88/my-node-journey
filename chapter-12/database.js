@@ -37,6 +37,12 @@ async function main() {
   const findResult = await collection.find({}).toArray();
   console.log('Found documents =>', findResult);
 
+  const updateResult = await collection.updateOne({ firstname: "Nitin" }, { $set: { phoneno: "8934534322" } });
+  console.log('Updated documents =>', updateResult);
+
+  const deleteResult = await collection.deleteMany({ firstname: "John" });
+  console.log('Deleted documents =>', deleteResult);
+
   // the following code examples can be pasted here...
 
   return "done.";
@@ -46,3 +52,6 @@ main()
   .then(console.log)
   .catch(console.error)
   .finally(() => client.close());
+
+
+// We have performed all the CRUD operations here.
